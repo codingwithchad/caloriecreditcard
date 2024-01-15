@@ -13,6 +13,5 @@ def workouts(request):
   return render(request, 'workouts.html', {'workouts': workouts})
 
 def debt(request):
-  debt = get_member_rows("Workouts sheet")  
-  print(debt)
+  debt = get_member_rows("Workouts sheet")
   return render(request, 'debt.html', { 'debt' : debt})

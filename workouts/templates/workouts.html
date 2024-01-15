@@ -19,6 +19,9 @@
       border-radius: 5px; /* Added subtle border radius */
       box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1); /* Added soft box shadow */
   }
+  h1{
+    border-bottom: black solid;
+  }
   h2 {
     color: #333;
     margin-bottom: 20px;
@@ -44,6 +47,8 @@
 
 <!-- workouts -->
 <div class="container">
+  <h1 class="head">Workouts</h1>
+
   {% for category, workouts in workouts.items %}
   <h2> {{ category }} </h2>      
   <table>
@@ -65,8 +70,9 @@
     </tbody>
   </table>       
   {% endfor %}
+  <p><a href="/debt.html">View Members Debt</a></p> </div>
 </div>
-<p><a href="/debt.html">View Members Debt</a></p> </div>
+
 
 </body>
 </html>
