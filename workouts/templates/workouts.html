@@ -2,14 +2,22 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8">
-  <title>Workouts Grid</title>  
+  <title>Calorie Credit Card</title>  
   <style>    
   body {
     font-family: Arial, sans-serif;
+      background-color: #f2f2f2; /* Added background color */
+      color: #333;
+      margin: 0; /* Remove default margin */
   }
   .container {
     width: 80%;
-    margin: auto;
+      max-width: 1200px; /* Added max-width for responsiveness */
+      margin: 30px auto;
+      padding: 20px;
+      background-color: #fff;
+      border-radius: 5px; /* Added subtle border radius */
+      box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1); /* Added soft box shadow */
   }
   h2 {
     color: #333;
@@ -34,7 +42,7 @@
 </head>
 <body>
 
-<!-- workouts grid -->
+<!-- workouts -->
 <div class="container">
   {% for category, workouts in workouts.items %}
   <h2> {{ category }} </h2>      
@@ -58,6 +66,7 @@
   </table>       
   {% endfor %}
 </div>
+<p><a href="/debt.html">View Members Debt</a></p> </div>
 
 </body>
 </html>
