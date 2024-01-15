@@ -1,8 +1,8 @@
 from django.shortcuts import render
-from .services import get_all_rows
+from .services import get_workout_rows, get_member_rows
 
 def workouts(request):
-  workout_data = get_all_rows("Workouts sheet")  
+  workout_data = get_workout_rows("Workouts sheet")  
   workouts = {}
   current_category = ''
   for workout in workout_data:
@@ -12,4 +12,6 @@ def workouts(request):
     workouts[current_category].append(workout)  
   return render(request, 'workouts.html', {'workouts': workouts})
 
-  
+def debt(request):
+  debt = get_member_rows("Workouts sheet")
+  return render(request, 'debt.html', { 'debt' : debt})
