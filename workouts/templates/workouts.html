@@ -2,77 +2,104 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8">
-  <title>Calorie Credit Card</title>  
-  <style>    
-  body {
-    font-family: Arial, sans-serif;
-      background-color: #f2f2f2; /* Added background color */
+  <title>Calorie Credit Card</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      background-color: #f2f2f2;
       color: #333;
-      margin: 0; /* Remove default margin */
-  }
-  .container {
-    width: 80%;
-      max-width: 1200px; /* Added max-width for responsiveness */
-      margin: 30px auto;
-      padding: 20px;
+      margin: 0;
+    }
+
+    .site{
       background-color: #fff;
-      border-radius: 5px; /* Added subtle border radius */
-      box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1); /* Added soft box shadow */
-  }
-  h1{
-    border-bottom: black solid;
-  }
-  h2 {
-    color: #333;
-    margin-bottom: 20px;
-  }
-  table {
-    width: 100%;
-    border-collapse: collapse;
-    margin-bottom: 40px;
-  }
-  th, td {
-    padding: 10px;
-    text-align: left;
-    border-bottom: 1px solid #ddd;
-  }
-  th {
-    background-color: #4CAF50;
-    color: white;
-  }
-  tr:hover {background-color: #f5f5f5;}
+      width: 80%;
+      max-width: 1200px;
+      margin: 30px auto;
+      padding: 20px;      
+      border-radius: 5px;
+      box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+
+    }
+
+    .container {      
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(400px, 1fr));
+      grid-gap: 20px;
+    }
+
+    @media (max-width: 1023px) {
+      .container {
+        grid-template-columns: 1fr;
+      }
+    }
+
+    .category-table {
+      display: grid; /* Create a grid for heading and table */
+      grid-template-rows: auto 1fr; /* Heading on first row, table on second */
+    }
+
+    h1 {
+      border-bottom: black solid;
+    }
+
+    h2 {
+      color: #333;
+      margin-bottom: 20px;
+    }
+
+    table {
+      width: 100%;
+      border-collapse: collapse;
+      margin-bottom: 40px;
+    }
+
+    th, td {
+      padding: 10px;
+      text-align: left;
+      border-bottom: 1px solid #ddd;
+    }
+
+    th {
+      background-color: #4CAF50;
+      color: white;
+    }
+
+    tr:hover {
+      background-color: #f5f5f5;
+    }
   </style>
 </head>
 <body>
 
-<!-- workouts -->
-<div class="container">
-  <h1 class="head">Workouts</h1>
-
-  {% for category, workouts in workouts.items %}
-  <h2> {{ category }} </h2>      
-  <table>
-    <thead>
-      <th> Movement </th>
-      <th> Amount </th>
-      <th> Description</th>
-      <th> Calories </th>
-    </thead>
-    <tbody>        
-    {% for workout in workouts %}
-      <tr>
-        <td>{{ workout.title }}</td>
-        <td>{{ workout.amount }}</td>
-        <td>{{ workout.description }}</td>
-        <td>{{ workout.calories }}</td>
-      </tr>               
-    {% endfor %}
-    </tbody>
-  </table>       
-  {% endfor %}
-  <p><a href="/debt.html">View Members Debt</a></p> </div>
-</div>
-
-
-</body>
+  <div class="site">
+    <h1 class="head">Workouts</h1>    
+    <div class="container">    
+      {% for category, workouts in workouts.items %}
+        <div class="category-table">
+          <h2>{{ category }}</h2>
+          <table>
+            <thead>
+              <th>Movement</th>
+              <th>Amount</th>
+              <th>Description</th>
+              <th>Calories</th>
+            </thead>
+            <tbody>
+              {% for workout in workouts %}
+                <tr>
+                  <td>{{ workout.title }}</td>
+                  <td>{{ workout.amount }}</td>
+                  <td>{{ workout.description }}</td>
+                  <td>{{ workout.calories }}</td>
+                </tr>
+              {% endfor %}
+            </tbody>
+          </table>
+        </div>
+      {% endfor %}
+    </div>
+      <p><a href="/debt.html">View Members Debt</a></p>
+    </div>
+  </body>
 </html>
