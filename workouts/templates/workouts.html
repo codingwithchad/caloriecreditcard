@@ -81,17 +81,15 @@
           <table>
             <thead>
               <th>Movement</th>
-              <th>Amount</th>
-              <th>Description</th>
+              <th>Amount</th>              
               <th>Calories</th>
             </thead>
             <tbody>
               {% for workout in workouts %}
                 <tr>
                   <td>{{ workout.title }}</td>
-                  <td>{{ workout.amount }}</td>
-                  <td>{{ workout.description }}</td>
-                  <td>{{ workout.calories }}</td>
+                  <td>{{ workout.amount }}</td>                  
+                  <td>{{ workout.points }}</td>
                 </tr>
               {% endfor %}
             </tbody>
